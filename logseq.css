@@ -2,17 +2,98 @@
 @import url('https://hardyphi.github.io/logseq/logseq.css');
 */
 
+/* define some global variables */
+:root {
+  --my-color-red: #cc241d;
+  --my-color-green: #98971a;
+  --my-color-yellow: #d79921;
+  --my-color-blue: #458588;
+  --my-color-purple: #b16286;
+  --my-color-aqua: #689d6a;
+  --my-color-orange: #d65d0e;
+}
+
+/* TAGS - style all tags */
+a.tag[data-ref="backlog"] {
+  background-color: var(--my-color-purple) !important;
+}
+
+a.tag[data-ref="fleeting"] {
+  background-color: var(--my-color-aqua) !important;
+}
+
+/* PRIORITIES & PICKER - Includes links and tooltip */
+a[priority] {
+    height: 1rem;
+    line-height: 1rem;
+    margin: 3px;
+    width: 1rem;
+}
+
+a[priority],
+a.priority {
+    display: inline-block;
+    font-size: 0px; /* Hide text */
+    position: relative;
+}
+
+a[priority="A"]:after,
+a.priority[href="#/page/A"]:after {
+    background-color: var(--my-color-red);
+    content: 'A';
+}
+
+a[priority="B"]:after,
+a.priority[href="#/page/B"]:after {
+    background-color: var(--my-color-yellow);
+    content: 'B';
+}
+
+a[priority="C"]:after,
+a.priority[href="#/page/C"]:after {
+    background-color: var(--my-color-green);
+    content: 'C';
+}
+
+a[priority]:after,
+a.priority:after {
+    border-radius: 50%;
+    color: var(--ls-primary-background-color);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    width: 1rem;
+}
+
+.Tooltip__label {
+    --arrow-size: 0px;
+    background-color: var(--ls-primary-background-color);
+    border: 1px solid var(--light-background);
+    font-size: 1rem;
+    left: -2px;
+    padding: 0 2px;
+    top: -2px;
+    width: max-content;
+}
+
+.Tooltip__label ul {
+    margin-left: 0;
+}
+
 /* PROPERTIES */
 /* removes bullet when displaying page properties */
 *:has(> div > div > div > div > div > :is(.page-properties, .block-properties)) > div > div > a > .bullet-container {
-  display: none
+    display: none
 }
 
 /* removes page properties entirely when embedding */
 *:has(> div > div > div > div > div > :is(.page-properties, .block-properties))[data-embed="true"] {
-  display: none
+    display: none
 }
 
 .page-properties, .block-properties {
-  font-size: 11px;
+    font-size: 11px;
 }
