@@ -1,0 +1,16 @@
+/* import with */
+
+/* PROPERTIES */
+/* removes bullet when displaying page properties */
+*:has(> div > div > div > div > div > :is(.page-properties, .block-properties)) > div > div > a > .bullet-container {
+  display: none
+}
+
+/* removes page properties entirely when embedding */
+*:has(> div > div > div > div > div > :is(.page-properties, .block-properties))[data-embed="true"] {
+  display: none
+}
+
+.page-properties, .block-properties {
+  font-size: 11px;
+}
